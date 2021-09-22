@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Sep 2021 pada 11.44
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 8.0.3
+-- Generation Time: Sep 22, 2021 at 04:40 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project_pkl1`
+-- Database: `project_pkl`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `absen`
+-- Table structure for table `absen`
 --
 
 CREATE TABLE `absen` (
@@ -34,10 +34,18 @@ CREATE TABLE `absen` (
   `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `absen`
+--
+
+INSERT INTO `absen` (`id`, `staff_id`, `waktuAbsen`, `status`) VALUES
+(1, 9, '17:17:12', 'masuk'),
+(2, 9, '21:35:05', 'keluar');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `balaskomentar`
+-- Table structure for table `balaskomentar`
 --
 
 CREATE TABLE `balaskomentar` (
@@ -52,7 +60,7 @@ CREATE TABLE `balaskomentar` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `departemen`
+-- Table structure for table `departemen`
 --
 
 CREATE TABLE `departemen` (
@@ -65,7 +73,7 @@ CREATE TABLE `departemen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `departemen`
+-- Dumping data for table `departemen`
 --
 
 INSERT INTO `departemen` (`id_departemen`, `nama_departemen`, `kantor_id`, `leader_departemen`, `jabatan_id`, `CreatedAt`) VALUES
@@ -75,7 +83,7 @@ INSERT INTO `departemen` (`id_departemen`, `nama_departemen`, `kantor_id`, `lead
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -91,7 +99,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hakakses`
+-- Table structure for table `hakakses`
 --
 
 CREATE TABLE `hakakses` (
@@ -101,7 +109,7 @@ CREATE TABLE `hakakses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `hakakses`
+-- Dumping data for table `hakakses`
 --
 
 INSERT INTO `hakakses` (`id`, `akses`, `createdAt`) VALUES
@@ -111,7 +119,7 @@ INSERT INTO `hakakses` (`id`, `akses`, `createdAt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `izin`
+-- Table structure for table `izin`
 --
 
 CREATE TABLE `izin` (
@@ -124,7 +132,7 @@ CREATE TABLE `izin` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jabatan`
+-- Table structure for table `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -138,7 +146,7 @@ CREATE TABLE `jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jabatan`
+-- Dumping data for table `jabatan`
 --
 
 INSERT INTO `jabatan` (`id_jabatan`, `jabatan`, `kantor_id`, `departemen_id`, `akses_id`, `leader`, `createdAt`) VALUES
@@ -148,7 +156,7 @@ INSERT INTO `jabatan` (`id_jabatan`, `jabatan`, `kantor_id`, `departemen_id`, `a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kantor`
+-- Table structure for table `kantor`
 --
 
 CREATE TABLE `kantor` (
@@ -161,7 +169,7 @@ CREATE TABLE `kantor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `kantor`
+-- Dumping data for table `kantor`
 --
 
 INSERT INTO `kantor` (`id`, `nama`, `alamat`, `noTelp`, `email`, `createdAt`) VALUES
@@ -171,7 +179,7 @@ INSERT INTO `kantor` (`id`, `nama`, `alamat`, `noTelp`, `email`, `createdAt`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komentar`
+-- Table structure for table `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -186,7 +194,7 @@ CREATE TABLE `komentar` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lembur`
+-- Table structure for table `lembur`
 --
 
 CREATE TABLE `lembur` (
@@ -197,10 +205,17 @@ CREATE TABLE `lembur` (
   `createdAt` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `lembur`
+--
+
+INSERT INTO `lembur` (`id`, `staff_id`, `perihal`, `hingga`, `createdAt`) VALUES
+(1, 9, 'proyek roro jonggrang', '04:00:00', '2021-09-22');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -210,7 +225,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -222,7 +237,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -234,7 +249,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengumuman`
+-- Table structure for table `pengumuman`
 --
 
 CREATE TABLE `pengumuman` (
@@ -246,16 +261,16 @@ CREATE TABLE `pengumuman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pengumuman`
+-- Dumping data for table `pengumuman`
 --
 
 INSERT INTO `pengumuman` (`id`, `subjek`, `deskSingkat`, `deskripsi`, `createdAt`) VALUES
-(2, 'Lorem Ipsum 1', '\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...\"', '<p>&nbsp; &nbsp; &nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non ultricies augue, vel fermentum erat. Nulla in diam nec velit semper bibendum. Sed ornare dignissim ex at mattis. Nullam quis dictum tortor. Nam volutpat accumsan nisl, vel aliquam augue auctor quis. Phasellus ac leo ac ipsum tincidunt dapibus a vitae lectus. Proin vel aliquet nunc. Donec porttitor rutrum metus consequat dignissim. Duis vel ex erat. Morbi non porttitor eros, vitae auctor felis. Praesent facilisis elit velit, non elementum tortor elementum ac.</p><p>&nbsp; &nbsp; &nbsp;Duis libero nulla, ultrices in diam eget, mollis bibendum neque. Ut scelerisque convallis purus. Fusce vitae orci vestibulum, tempor libero eget, faucibus felis. Curabitur dui erat, pharetra nec justo id, consectetur semper ligula. Nam nibh dolor, vehicula vitae egestas ac, pharetra ut felis. Aliquam id massa metus. Ut interdum pulvinar eros, vitae venenatis turpis faucibus ac. In non arcu diam. Fusce accumsan enim quam. Donec mauris magna, volutpat sed aliquet et, consectetur sit amet nisl. Praesent et massa commodo, egestas sapien quis, tincidunt quam.</p><p>&nbsp; &nbsp;&nbsp;</p>', '2021-09-07');
+(1, 'semua orang', 'pembertitahuan wfo', 'dikarenakan kota jember telah turun menjadi ppkm level 2 maka kami memutuskan untuk mengadakan wfo kembali\n', '2021-09-22');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -273,7 +288,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `staff`
+-- Table structure for table `staff`
 --
 
 CREATE TABLE `staff` (
@@ -294,7 +309,7 @@ CREATE TABLE `staff` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `staff`
+-- Dumping data for table `staff`
 --
 
 INSERT INTO `staff` (`id`, `nama_staff`, `foto`, `tglLahir`, `gender`, `email_staff`, `password`, `noTelp_staff`, `provinsi`, `kabupaten`, `kecamatan`, `alamat_staff`, `kantor_id`, `createdAt`) VALUES
@@ -303,7 +318,7 @@ INSERT INTO `staff` (`id`, `nama_staff`, `foto`, `tglLahir`, `gender`, `email_st
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -318,7 +333,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -329,14 +344,14 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
--- Indeks untuk tabel `absen`
+-- Indexes for table `absen`
 --
 ALTER TABLE `absen`
   ADD PRIMARY KEY (`id`),
   ADD KEY `staff_id` (`staff_id`);
 
 --
--- Indeks untuk tabel `balaskomentar`
+-- Indexes for table `balaskomentar`
 --
 ALTER TABLE `balaskomentar`
   ADD PRIMARY KEY (`id`),
@@ -345,7 +360,7 @@ ALTER TABLE `balaskomentar`
   ADD KEY `nama` (`nama`);
 
 --
--- Indeks untuk tabel `departemen`
+-- Indexes for table `departemen`
 --
 ALTER TABLE `departemen`
   ADD PRIMARY KEY (`id_departemen`),
@@ -354,27 +369,27 @@ ALTER TABLE `departemen`
   ADD KEY `leader` (`leader_departemen`);
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indeks untuk tabel `hakakses`
+-- Indexes for table `hakakses`
 --
 ALTER TABLE `hakakses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `izin`
+-- Indexes for table `izin`
 --
 ALTER TABLE `izin`
   ADD PRIMARY KEY (`id`),
   ADD KEY `staff_id` (`staff_id`);
 
 --
--- Indeks untuk tabel `jabatan`
+-- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`),
@@ -384,13 +399,13 @@ ALTER TABLE `jabatan`
   ADD KEY `leader` (`leader`);
 
 --
--- Indeks untuk tabel `kantor`
+-- Indexes for table `kantor`
 --
 ALTER TABLE `kantor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `komentar`
+-- Indexes for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id`),
@@ -399,31 +414,31 @@ ALTER TABLE `komentar`
   ADD KEY `nama` (`nama`);
 
 --
--- Indeks untuk tabel `lembur`
+-- Indexes for table `lembur`
 --
 ALTER TABLE `lembur`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `pengumuman`
+-- Indexes for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -431,7 +446,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indeks untuk tabel `staff`
+-- Indexes for table `staff`
 --
 ALTER TABLE `staff`
   ADD PRIMARY KEY (`id`),
@@ -439,126 +454,126 @@ ALTER TABLE `staff`
   ADD KEY `nama` (`nama_staff`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `balaskomentar`
+-- AUTO_INCREMENT for table `balaskomentar`
 --
 ALTER TABLE `balaskomentar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `departemen`
+-- AUTO_INCREMENT for table `departemen`
 --
 ALTER TABLE `departemen`
   MODIFY `id_departemen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `hakakses`
+-- AUTO_INCREMENT for table `hakakses`
 --
 ALTER TABLE `hakakses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `jabatan`
+-- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `kantor`
+-- AUTO_INCREMENT for table `kantor`
 --
 ALTER TABLE `kantor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `komentar`
+-- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `lembur`
+-- AUTO_INCREMENT for table `lembur`
 --
 ALTER TABLE `lembur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `pengumuman`
+-- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `staff`
+-- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `absen`
+-- Constraints for table `absen`
 --
 ALTER TABLE `absen`
   ADD CONSTRAINT `absen_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `balaskomentar`
+-- Constraints for table `balaskomentar`
 --
 ALTER TABLE `balaskomentar`
   ADD CONSTRAINT `balaskomentar_ibfk_1` FOREIGN KEY (`komentar_id`) REFERENCES `komentar` (`id`),
   ADD CONSTRAINT `balaskomentar_ibfk_2` FOREIGN KEY (`nama`) REFERENCES `staff` (`nama_staff`);
 
 --
--- Ketidakleluasaan untuk tabel `departemen`
+-- Constraints for table `departemen`
 --
 ALTER TABLE `departemen`
   ADD CONSTRAINT `departemen_ibfk_1` FOREIGN KEY (`kantor_id`) REFERENCES `kantor` (`id`),
   ADD CONSTRAINT `departemen_ibfk_2` FOREIGN KEY (`jabatan_id`) REFERENCES `jabatan` (`id_jabatan`);
 
 --
--- Ketidakleluasaan untuk tabel `izin`
+-- Constraints for table `izin`
 --
 ALTER TABLE `izin`
   ADD CONSTRAINT `izin_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `jabatan`
+-- Constraints for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD CONSTRAINT `jabatan_ibfk_1` FOREIGN KEY (`akses_id`) REFERENCES `hakakses` (`id`),
@@ -567,7 +582,7 @@ ALTER TABLE `jabatan`
   ADD CONSTRAINT `jabatan_ibfk_5` FOREIGN KEY (`akses_id`) REFERENCES `hakakses` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `komentar`
+-- Constraints for table `komentar`
 --
 ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`pengumuman_id`) REFERENCES `pengumuman` (`id`),
@@ -575,7 +590,7 @@ ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_3` FOREIGN KEY (`nama`) REFERENCES `staff` (`nama_staff`);
 
 --
--- Ketidakleluasaan untuk tabel `staff`
+-- Constraints for table `staff`
 --
 ALTER TABLE `staff`
   ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`kantor_id`) REFERENCES `kantor` (`id`);
